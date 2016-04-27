@@ -2,6 +2,8 @@ package com.remarea.alitariq.remarea;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +35,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
         register = (TextView) findViewById(R.id.register);
+        login.setOnClickListener(this);
+        register.setOnClickListener(this);
     }//OnCreate method ends here
 
 
@@ -43,11 +47,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     {
         if (v==findViewById(R.id.login))
         {
-
+            String user = username.getText().toString();
+            String pass = password.getText().toString();
         }
         else if (v==findViewById(R.id.register))
         {
-
+            Intent in = new Intent(this, RegisterActivity.class);
+            startActivity(in);
         }
     }//OnClick method ends here
 }
